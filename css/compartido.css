@@ -1,0 +1,118 @@
+*
+{
+    background-color: white;
+    padding: 0px;
+    margin: 0px;
+}
+
+body
+{
+    height: 1000px;
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+}
+
+#encabezado
+{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    border: inset 1.5px black;
+    border-top-right-radius: 200px;
+    border-bottom-right-radius: 200px;
+    align-items:flex-end;
+}
+
+#encabezado img {
+    display: flex;
+    position: relative;
+    background-color: transparent;
+}
+
+#menu
+{
+    bottom: -1px;
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+    border-bottom: inset black 10px;
+    position: relative;
+    right: 120px;
+    width: 92.5%;
+    height: 100%;
+}
+
+#menu ul
+{
+    list-style-type: none;
+}
+
+#menu li
+{
+    float: left;
+}
+
+#menu li a
+{
+    display: inline-block;
+    color: black;
+    text-align: center;
+    padding: 10px 10px;
+    text-decoration: none;
+}
+
+#menu li a:hover
+{
+    background-color: #111;
+}
+
+#menu .active 
+{
+    background-color: black;
+    color: white;
+}
+
+
+#menu li ul li 
+{
+    display: none;
+    position: fixed;
+    background-color: #333;
+}
+
+#menu li:hover ul li 
+{
+    display: block;
+    z-index: 5;
+}
+
+#menu li ul li a 
+{
+    width: 110px;
+}   
+
+#menu li ul li:nth-child(2)
+{
+    margin-top: 46px;
+}
+
+#menu li ul li:nth-child(3)
+{
+    margin-top: 92px;
+}
+
+
+#cuerpo
+{
+    height: 1000px;
+    background-color: black;
+}
+
+#pie
+{
+    background-color: #d6d6d2;
+    height: 50px;
+    border: inset 1.5px black;
+    position: relative;
+}
