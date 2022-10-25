@@ -1,0 +1,15 @@
+#cuerpo
+{
+    height: 1000px;
+    display: flex;
+    flex-direction: row;
+    background-color: black;
+}
+
+#titulos
+{
+    display:flex;
+    color: white;
+    margin: 20px;
+    
+}
