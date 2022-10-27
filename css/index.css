@@ -4,12 +4,39 @@
     display: flex;
     flex-direction: row;
     background-color: black;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
-#titulos
+#cuerpo div
 {
-    display:flex;
+    display: flex;
     color: white;
-    margin: 20px;
-    
+    float: right;
+    margin-top: 56px;
+    flex-wrap: wrap;
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
 }
+
+#cuerpo div h1 
+{
+    text-align: center;
+    margin-left: 25px;
+    height: 50px;
+}
+
+#cuerpo div p  
+{
+    font-size: large;
+    height: auto;
+}
+
+#cuerpo div:nth-child(2)
+{
+    padding-right: 100px;
+    padding-left: 100px;
+    border-image: linear-gradient(transparent 10%, white 40% 40%, transparent 90%) 0 1 0 1 / 3px;
+}
+
