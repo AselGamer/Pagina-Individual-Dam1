@@ -30,7 +30,7 @@ body
     position: relative;
     background-color: transparent;
     float: right;
-    align-self: flex-end;
+    
 }
 
 #menu .active 
