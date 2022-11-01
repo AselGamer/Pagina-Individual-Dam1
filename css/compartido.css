@@ -41,6 +41,7 @@ body
     font-size: larger;
 }
 
+
 #menu
 {
     float: left;
@@ -114,6 +115,12 @@ body
 #menu li #dropdown li:nth-child(1)
 {
     margin-top: -1px;
+}
+
+#menu li #dropdown li:nth-child(1) .active
+{
+    margin-top: 6px;
+    font-size: medium;
 }
 
 #menu li #dropdown li:nth-child(2)
