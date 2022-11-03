@@ -4,6 +4,7 @@
     margin: 0px;
 }
 
+
 body
 {
     height: 1000px;
@@ -11,6 +12,7 @@ body
     flex-direction: column;
     background-color: black;
 }
+
 
 #encabezado
 {
@@ -26,12 +28,23 @@ body
     flex-grow: 1;
 }
 
-#encabezado img {
+
+
+#logoPagina
+{
     display: flex;
-    position: relative;
-    background-color: transparent;
+    position: absolute;
     float: right;
-    
+    margin-top: -20px;
+}
+
+#logoPagina img
+{
+    position: relative;
+    float: right;
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
 }
 
 #menu .active 
