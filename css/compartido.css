@@ -151,6 +151,7 @@ body
 {
     height: 1000px;
     background-color: black;
+    
 }
 
 #pie
@@ -159,7 +160,7 @@ body
     display: flex;
     flex-direction: row;
     background-color: #d6d6d2;
-    height: 50px;
-    border: inset 1.5px black;
+    min-height: 50px;
+    flex-grow: 1;
     bottom: 0;
 }

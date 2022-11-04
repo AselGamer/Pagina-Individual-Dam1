@@ -1,0 +1,31 @@
+#miembros
+{
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: 20px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    flex-grow: 1;
+}
+
+#miembros img
+{
+    width: 200px;
+    height: 200px;
+    margin-bottom: 20px;
+}
+
+#miembros h1 
+{
+    color: white;
+    margin-bottom: 20px;
+}
+
+#miembros p
+{
+    color: white;
+    width: 150px;
+}

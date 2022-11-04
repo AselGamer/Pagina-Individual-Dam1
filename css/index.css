@@ -6,6 +6,7 @@
     background-color: black;
     flex-wrap: wrap;
     justify-content: space-between;
+    flex-grow: 1;
 }
 
 
@@ -34,7 +35,7 @@
 {
     font-size: large;
     height: auto;
-    margin-top: -400px;
+    
 }
 
 #cuerpo > div:nth-child(2)
@@ -48,9 +49,7 @@
 
 }
 
-video
+audio
 {
     margin-left: -80px;
-    margin-top: -235px;
-    
 }
