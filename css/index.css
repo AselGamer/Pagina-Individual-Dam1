@@ -1,55 +1,67 @@
-#cuerpo
+#cuerpo 
 {
-    height: 1000px;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.inicio
+{
     display: flex;
     flex-direction: row;
-    background-color: black;
     flex-wrap: wrap;
-    justify-content: space-between;
-    flex-grow: 1;
-}
-
-
-#cuerpo > div
-{
-    display: flex;
-    color: white;
-    float: right;
-    margin-top: 56px;
-    flex-wrap: wrap;
-    width: 200px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 56px;
     align-items: center;
+    justify-content: center;
+    color: white;
 }
 
-#cuerpo div h1 
+.inicio div
 {
-    text-align: center;
-    margin-left: 25px;
-    height: 0px;
-}
-
-#cuerpo div p  
-{
-    font-size: large;
     height: auto;
+    width: 300px;
+    height: auto;
+    padding: 10px;
+    margin: 40px;
+    border: 2px solid white;
+    border-radius: 0px;
+    transition-duration: 1s;
+}
+
+.inicio p
+{
+    transition: none;
+}
+
+.inicio div:hover 
+{
+    border-radius: 20px;
+}
+
+.inicio div h1
+{
+    margin-bottom: 30px;
+}
+
+#gira p
+{
+    margin-bottom: 10px;
+}
+
+.inicio div a
+{
     
+    color: white;
+    font-weight: normal;
 }
 
-#cuerpo > div:nth-child(2)
+.inicio div a:hover
 {
-    padding-right: 50px;
-    padding-left: 50px;
-    border:3px solid white;
-    border-top:0px solid transparent;
-    border-bottom:0px solid transparent;
-    /*border-image: linear-gradient(transparent 10%, white 40% 40%, transparent 90%) 0 1 0 1 / 3px;*/
-
+    
+    font-weight: bolder;
 }
 
-audio
+.inicio div:hover
 {
-    margin-left: -80px;
+    transition: none;
+    font-size: larger;
 }

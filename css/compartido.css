@@ -7,44 +7,35 @@
 
 body
 {
-    height: 1000px;
+    height: 100%;
+    width: auto;
     display: flex;
     flex-direction: column;
     background-color: black;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
 }
 
 
 #encabezado
 {
+    position: relative;
     background-color: white;
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
+    height: auto;
     border: inset 1.5px black;
     border-top-right-radius: 200px;
     border-bottom-right-radius: 200px;
-    align-items:flex-end;
-    height: 200px;
-    flex-grow: 1;
+    width: 100%;
 }
 
-
-
-#logoPagina
-{
-    display: flex;
-    position: absolute;
-    float: right;
-    margin-top: -20px;
-}
 
 #logoPagina img
 {
     position: relative;
-    float: right;
     background-color: transparent;
-    width: 100%;
-    height: 100%;
 }
 
 #menu .active 
@@ -57,13 +48,15 @@ body
 
 #menu
 {
+    display: flex;
     float: left;
     margin: 0px;
     padding: 0px;
     position: relative;
     width: 100%;
-    height: 100%;
+    height: 50px;
     flex-wrap: wrap;
+    align-self: flex-end;
 }
 
 #menu ul
@@ -75,7 +68,7 @@ body
 #menu li
 {
     float: left;
-    margin-top: 160px;
+    
 }
 
 #menu li a
@@ -151,6 +144,7 @@ body
 {
     height: 1000px;
     background-color: black;
+    display: flex;
     
 }
 
@@ -161,6 +155,7 @@ body
     flex-direction: row;
     background-color: #d6d6d2;
     min-height: 50px;
-    flex-grow: 1;
-    bottom: 0;
+    width: 100%;
+    height: auto;
+    align-self: flex-end;
 }
