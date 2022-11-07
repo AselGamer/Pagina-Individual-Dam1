@@ -5,6 +5,7 @@
 }
 
 
+
 .inicio
 {
     display: flex;
@@ -62,6 +63,20 @@
 
 .inicio div:hover
 {
-    transition: none;
     font-size: larger;
+    background-color: #2e2d2d;
+}
+
+#noticiaImagen
+{
+    display: flex;
+    width: auto;
+    height: auto;
+    border-color: transparent;
+}
+
+#noticiaImagen img
+{
+    height: 200px;
+    width: 200px;
 }
