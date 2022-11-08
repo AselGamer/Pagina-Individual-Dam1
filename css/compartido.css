@@ -17,7 +17,7 @@ body
     flex-direction: column;
     background-color: black;
     align-items: center;
-    justify-content: center;
+    flex-grow: 1;
 }
 
 
@@ -33,7 +33,7 @@ body
     border-bottom-right-radius: 200px;
     width: 99%;
     align-self: flex-start;
-    flex-grow: 1;
+    
 }
 
 
@@ -147,18 +147,18 @@ body
 
 #cuerpo
 {
-    height: 1000px;
+    height: auto;
     background-color: black;
     display: flex;
-    flex-grow: 200;
 }
 
 #pie
 {
+    margin-top: auto;
     position: relative;
     display: flex;
     float: left;
-    flex-grow: 1;
+    flex-shrink: 0;
     flex-direction: row;
     background-color: #d6d6d2;
     min-height: 50px;
@@ -166,6 +166,7 @@ body
     height: auto;
     align-self: flex-end;
     align-items: center;
+    clear: both;
 }
 
 #pie img
