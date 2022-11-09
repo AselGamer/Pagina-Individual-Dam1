@@ -1,0 +1,23 @@
+#tabla
+{
+    display: flex;
+    color: white;
+    height: auto;
+    align-items: center;
+    align-self: center;
+    width: 100%;
+    flex-grow: 1;
+    text-align: center;
+}
+
+th, td
+{
+    border-bottom:1px solid white;
+    border-radius: 20px;
+}
+
+table
+{
+    background-image: linear-gradient(black, grey);
+    border-radius: 20px;
+}
