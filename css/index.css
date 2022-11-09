@@ -70,13 +70,18 @@
 #noticiaImagen
 {
     display: flex;
-    width: auto;
-    height: auto;
+    width: 200px;
+    height: 200px;
     border-color: transparent;
 }
 
-#noticiaImagen img
+#noticiaImagen
 {
-    height: 200px;
-    width: 200px;
+    background: transparent;
+}
+
+#noticiaImagen video
+{
+    height: inherit;
+    width: inherit;
 }

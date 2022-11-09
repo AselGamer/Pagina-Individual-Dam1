@@ -10,6 +10,17 @@
 #miembros div
 {
     margin: 20px;
+    height: auto;
+    width: 300px;
+    height: auto;
+    padding: 10px;
+    border: 2px solid white;
+    border-radius: 0px;
+    transition-duration: 1s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 #miembros img
