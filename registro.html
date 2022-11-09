@@ -25,7 +25,24 @@
                 <img src="images/logo.png" alt="Logo pagina" id="logoPagina"/>
             </div>
             <div id="cuerpo">
-                
+                <div id="formulario">
+                    <form>
+                        <label for="nombreusuario" class="etiqueta">Nombre de usuario:</label>
+                        <input type="text" id="nombreusuario" name="nombreusuario" class="entradaTexto"/>
+                        <label for="email" class="etiqueta">Email:</label>
+                        <input type="text" id="email" name="email" class="entradaTexto"/>
+                        <label for="contraseña" class="etiqueta">Contraseña</label>
+                        <input type="password" id="contraseña" name="contraseña" class="entradaTexto"/>
+                        <label for="tipo" class="etiqueta">Tipo de cuenta:</label>
+                        <input type="radio" id="buisness" name="tipoCuenta" value="buisness"/>
+                        <label for="buisness">Empresa</label>
+                        <input type="radio" id="normal" name="tipoCuenta" value="normal"/>
+                        <label for="normal" class="etiquetaInvertida">Normal</label>
+                        <label for="recordarme">Recordarme:</label>
+                        <input type="checkbox" name="recordarme" id="recordarme"/>
+                        <div id="botonRegistro"><input type="submit" value="Registrarse" id="registrarse" class="entradaTexto"/></div>
+                    </form>
+                </div>
                 </div>
             </div>
             <div id="pie">

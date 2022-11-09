@@ -1,0 +1,46 @@
+#cuerpo
+{
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    font-size: large;
+}
+
+#formulario
+{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border: 3px white solid;
+    border-radius: 20px;
+    height: auto;
+    width: auto;
+}
+
+form
+{
+    display: block;
+    margin: 10px;
+    height: auto;
+    width: auto;
+}
+
+.etiqueta::before
+{
+    content: "\a";
+    white-space: pre;
+}
+
+.etiquetaInvertida::after
+{
+    content: "\a";
+    white-space: pre;
+}
+
+#botonRegistro::after
+{
+    content: "\a";
+    white-space: pre;
+}
