@@ -4,6 +4,12 @@
     justify-content: center;
 }
 
+#noticias
+{
+    height:500px;
+    overflow:scroll;
+    overflow-x:hidden;
+}
 
 
 .inicio
@@ -85,4 +91,5 @@
     height: inherit;
     width: inherit;
 }
+
 

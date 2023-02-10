@@ -66,6 +66,7 @@ body
 #menu ul
 {
     list-style-type: none;
+    display: flex;
     
 }
 
@@ -179,4 +180,8 @@ body
     #menu {
         align-self: flex-start;
     }
+}
+
+.login {
+    justify-content: space-around;
 }

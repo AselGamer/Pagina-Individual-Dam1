@@ -1,0 +1,43 @@
+h1, p, a
+{
+    color: white;
+}
+
+#noticia 
+{
+    display: flex;
+    flex-direction: column;
+    margin: 50px;
+}
+
+h1 
+{
+    text-align: center;
+}
+
+#noticia p
+{
+    font-size: large;
+}
+
+#autor 
+{
+    text-decoration: underline;
+    font-size: larger;
+}
+
+#imagen 
+{
+    height: 400px;
+    width: 400px;
+    align-self: center;
+    margin-bottom: 10px;
+}
+
+#fecha 
+{
+    font-size: small;
+    text-decoration: wavy;
+    margin-top: 10px;
+    text-align: right;
+}
