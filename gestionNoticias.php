@@ -18,6 +18,7 @@
             <div id="cuerpo">
       <table id="tablanoticias">
         <tr>
+          <th>Fecha</th>
           <th>Nombre</th>
           <th>Borrar</th>
           <th>Modificar</th>
@@ -29,6 +30,7 @@
         for($i = 0; $i < $tamArray; $i++)
         {
           echo "<tr>";
+          echo "<td>".$noticias[$i]['fecha_pub']."</td>";
             echo "<td>".$noticias[$i]['titulo']."</td>";
             echo "<td><a href='bajaNoticia.php?id_noticia=".$noticias[$i]['id_noticia']."'>Borrar</a></td>";
             echo "<td><a href='editarNoticia.php?id_noticia=".$noticias[$i]['id_noticia']."'>Modificar</a></td>";
