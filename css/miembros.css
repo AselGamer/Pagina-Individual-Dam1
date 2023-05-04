@@ -1,3 +1,7 @@
+#cuerpo {
+    grid-column: 1 / 4;
+}
+
 #miembros
 {
     align-items: center;

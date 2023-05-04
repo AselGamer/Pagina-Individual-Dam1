@@ -13,7 +13,7 @@ function connectBBDD()
   function login($user, $password)
   {
     $mysqli = connectBBDD();
-    $sql = "SELECT id_usuario FROM usuario WHERE nombre_usuario = ? AND password = ?";
+    $sql = "SELECT * FROM usuario WHERE nombre_usuario = ? AND password = ?";
     $sentencia = $mysqli->prepare($sql);
     if(!$sentencia)
     {
@@ -33,8 +33,9 @@ function connectBBDD()
     }
 
     $id_usuario = 0;
-
-    $vincular = $sentencia->bind_result($id_usuario);
+    $nombre = "";
+    $password = "";
+    $vincular = $sentencia->bind_result($id_usuario, $nombre, $password);
     if(!$vincular)
     {
       echo "Fallo al vincular parametros: ".$mysqli->errno;
@@ -43,7 +44,7 @@ function connectBBDD()
 
     if($sentencia->fetch())
     {
-
+      
     }
 
     $mysqli->close();
@@ -69,9 +70,12 @@ function connectBBDD()
     {
       echo "Fallo en la ejecucion: ".$mysqli->errno;
     }
+
+    $idInsertada = $mysqli->insert_id;
+
     $mysqli->close();
 
-    return $ejecucion;
+    return $idInsertada;
   }
   function obtenerNoticias() 
   {
@@ -342,5 +346,150 @@ function connectBBDD()
 
     $mysqli->close();
     return $noticia;
+  }
+
+  function crearUsuario($nombre, $password)
+  {
+    $mysqli = connectBBDD();
+    $sql = "INSERT INTO usuario (nombre_usuario, password) VALUES (LOWER(?), ?)";
+    $sentencia = $mysqli->prepare($sql);
+    if(!$sentencia)
+    {
+      echo "Fallo en la preparacion de la sentencia: ".$mysqli->errno;
+    }
+    $asignar = $sentencia->bind_param("ss", $nombre, $password);
+    if(!$asignar)
+    {
+      echo "Fallo al asignar parámetros: ".$mysqli->errno;
+    }
+    $ejecucion = $sentencia->execute();
+    if(!$ejecucion)
+    {
+      echo "Fallo en la ejecución de la sentencia: ".$mysqli->errno;
+    }
+    $mysqli->close();
+
+    return $ejecucion;
+  }
+
+  function getFechaTag($tag)
+  {
+    $mysqli = connectBBDD();
+    $sql = "select DISTINCT(noticia.fecha_pub) from noticia INNER JOIN noticia_tag ON noticia_tag.id_noticia = noticia.id_noticia INNER JOIN tags ON tags.id_tag = noticia_tag.id_tag WHERE tags.tag = ?";
+    $sentencia = $mysqli->prepare($sql);
+    if(!$sentencia)
+    {
+      echo "Fallo en la preparacion de la sentencia: ".$mysqli->errno;
+    }
+    $asignar = $sentencia->bind_param("s", $tag);
+    if(!$asignar)
+    {
+      echo "Fallo al asignar parámetros: ".$mysqli->errno;
+    }
+    $ejecucion = $sentencia->execute();
+    if(!$ejecucion)
+    {
+      echo "Fallo en la ejecución de la sentencia: ".$mysqli->errno;
+    }
+
+    $fecha_pub = "";
+    $vincular = $sentencia->bind_result($fecha_pub);
+    if(!$vincular)
+    {
+      echo "Fallo al vincular los resultados: ".$mysqli->errno;
+    }
+
+    $noticia = null;
+
+    if($sentencia->fetch())
+    {
+      $noticia = array(
+        'fecha_pub' => $fecha_pub
+      );
+    }
+
+    $mysqli->close();
+    return $noticia;
+  }
+
+  function checkUsuario($user)
+  {
+    $mysqli = connectBBDD();
+    $sql = "SELECT nombre_usuario FROM usuario WHERE LOWER(nombre_usuario) = ?";
+    $sentencia = $mysqli->prepare($sql);
+    if(!$sentencia)
+    {
+      echo "Fallo al preparar la sentencia: ".$mysqli->errno;
+    }
+
+    $asignar = $sentencia->bind_param("s", $user);
+    if(!$asignar)
+    {
+      echo "Fallo al asignar parámetros: ".$mysqli->errno;
+    }
+
+    $ejecucion = $sentencia->execute();
+    if(!$ejecucion)
+    {
+      echo "Fallo en la ejecucion: ".$mysqli->errno;
+    }
+
+    $nombre = "";    
+    $vincular = $sentencia->bind_result($nombre);
+    if(!$vincular)
+    {
+      echo "Fallo al vincular parametros: ".$mysqli->errno;
+    }
+
+    $listaUsuarios = array();
+
+    if($sentencia->fetch())
+    {
+      $listaUsuarios = array(
+        'nombre' => $nombre
+      );
+    }
+
+    $mysqli->close();
+    return $listaUsuarios;
+  }
+
+  function obtenerTags()
+  {
+    $mysqli = connectBBDD();
+    $sql = "SELECT * FROM tags";
+    $sentencia = $mysqli->prepare($sql);
+    if(!$sentencia)
+    {
+      echo "Fallo en la preparacion de la sentencia: ".$mysqli->errno;
+    }
+
+    $ejecucion = $sentencia->execute();
+    if(!$ejecucion)
+    {
+      echo "Fallo en la ejecución de la sentencia: ".$mysqli->errno;
+    }
+
+    $id = -1;
+    $tag = "";
+    $vincular = $sentencia->bind_result($id, $tag);
+    if(!$vincular)
+    {
+      echo "Fallo al vincular los resultados: ".$mysqli->errno;
+    }
+
+    $tags = array();
+
+    while($sentencia->fetch())
+    {
+      $tag = array(
+        'id_tag'=> $id,
+        'nombre_tag' => $tag
+      );
+      $tags[] = $tag;
+    }
+
+    $mysqli->close();
+    return $tags;
   }
 ?>

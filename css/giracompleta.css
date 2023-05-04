@@ -1,5 +1,14 @@
+#cuerpo
+{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
 #tabla
 {
+    position: absolute;
     display: flex;
     color: white;
     height: auto;
@@ -12,12 +21,43 @@
 
 th, td
 {
-    border-bottom:1px solid white;
-    border-radius: 20px;
+    border:1px solid black;
+    /*border-bottom:1px solid white;*/
+    border-radius: 5px;
 }
 
 table
 {
-    background-image: linear-gradient(black, grey);
+    
+    /*background-image: linear-gradient(white, grey);*/
     border-radius: 20px;
+}
+
+a > img
+{
+    height: 64px;
+    width: 64px;
+}
+
+#botones
+{
+    margin: 10px;
+    display: flex;
+    justify-content: space-around;
+}
+
+#confirmacion
+{
+    display: none;
+    position: absolute;
+    background-color: rgb(112,128,144);
+    border-radius: 10px;
+    border: 5px solid rgb(47,79,79);
+    padding: 5px;
+}
+
+#botones > button
+{
+    width: 30px;
+    align-self: center;
 }

@@ -1,13 +1,15 @@
 #cuerpo
 {
     align-items: center;
+    grid-column: 1 / 4;
+    width: 100%;
 }
 
 #albums
 {
     display: flex;
     color: white;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     height: auto;
     width: inherit;

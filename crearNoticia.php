@@ -1,4 +1,5 @@
 <html>
+    <link rel="stylesheet" href="css/manipNoticia.css">
     <link rel="stylesheet" href="css/compartido.css">
     <link rel="stylesheet" href="css/registro.css">
     <head>
@@ -30,6 +31,17 @@
                         <?php
                         echo '<input type="hidden" name="id_usuario" value="'.$_SESSION['id_usuario'].'"/>'
                         ?>
+                        <label for="tags" class="etiqueta">Tags:</label>
+                        <select name="tags[]" id ="tags" multiple>
+                            <?php
+                                include_once 'bbdd.php';
+                                $tags = obtenerTags();
+                                $tagLength = sizeof($tags);
+                                for ($i=0; $i < $tagLength; $i++) { 
+                                    echo '<option value='.$tags[$i]['id_tag'].'>'.$tags[$i]['nombre_tag'].'</option>';
+                                }
+                            ?>
+                        </select>
                         <div id="botonRegistro"><input type="submit" value="Crear Noticia" id="registrarse" class="entradaTexto"/></div>
                     </form>
                 </div>

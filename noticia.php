@@ -21,7 +21,6 @@
                 echo '<img src="images/'.$noticia['imagen'].'" alt="'.$noticia['imagen'].'" id="imagen">';
                 echo '<p>"'.$noticia['articulo'].'"</p>';
                 echo '<p id="fecha">'.$noticia['fecha_pub'].'</p>';
-                
                 ?>
             </div>
             </div>

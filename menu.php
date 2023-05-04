@@ -23,6 +23,7 @@
     {
         //echo '<li><a href="registro.html">Registro</a></li>';
         echo '<li><a href="login.php">Login</a></li>';
+        echo '<li><a href="registro.php">Registrarse</a></li>';
     }
     ?>
 </ul>
