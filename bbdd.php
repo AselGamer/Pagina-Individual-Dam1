@@ -221,6 +221,7 @@ function connectBBDD()
     {
       echo "Fallo en la ejecucion: ".$mysqli->errno;
     }
+    
     $mysqli->close();
 
     return $ejecucion;
@@ -372,16 +373,16 @@ function connectBBDD()
     return $ejecucion;
   }
 
-  function getFechaTag($tag)
+  function getFechaTag($id_tag)
   {
     $mysqli = connectBBDD();
-    $sql = "select DISTINCT(noticia.fecha_pub) from noticia INNER JOIN noticia_tag ON noticia_tag.id_noticia = noticia.id_noticia INNER JOIN tags ON tags.id_tag = noticia_tag.id_tag WHERE tags.tag = ?";
+    $sql = "select DISTINCT(noticia.fecha_pub) from noticia INNER JOIN noticia_tag ON noticia_tag.id_noticia = noticia.id_noticia INNER JOIN tags ON tags.id_tag = noticia_tag.id_tag WHERE tags.id_tag = ?";
     $sentencia = $mysqli->prepare($sql);
     if(!$sentencia)
     {
       echo "Fallo en la preparacion de la sentencia: ".$mysqli->errno;
     }
-    $asignar = $sentencia->bind_param("s", $tag);
+    $asignar = $sentencia->bind_param("i", $id_tag);
     if(!$asignar)
     {
       echo "Fallo al asignar parámetros: ".$mysqli->errno;
@@ -401,15 +402,17 @@ function connectBBDD()
 
     $noticia = null;
 
-    if($sentencia->fetch())
+    $noticias = array();
+
+    while($sentencia->fetch())
     {
       $noticia = array(
         'fecha_pub' => $fecha_pub
       );
+      $noticias[] = $noticia;
     }
-
     $mysqli->close();
-    return $noticia;
+    return $noticias;
   }
 
   function checkUsuario($user)
@@ -493,6 +496,51 @@ function connectBBDD()
     return $tags;
   }
 
+  function obtenerTagsEn($id_noticia)
+  {
+    $mysqli = connectBBDD();
+    $sql = "SELECT tags.id_tag, tags.tag FROM tags INNER JOIN noticia_tag ON tags.id_tag = noticia_tag.id_tag WHERE noticia_tag.id_noticia = ?";
+    $sentencia = $mysqli->prepare($sql);
+    if(!$sentencia)
+    {
+      echo "Fallo en la preparacion de la sentencia: ".$mysqli->errno;
+    }
+
+    $asignar = $sentencia->bind_param("i", $id_noticia);
+    if(!$asignar)
+    {
+      echo "Fallo al asignar parámetros: ".$mysqli->errno;
+    }
+
+    $ejecucion = $sentencia->execute();
+    if(!$ejecucion)
+    {
+      echo "Fallo en la ejecución de la sentencia: ".$mysqli->errno;
+    }
+
+    $id = -1;
+    $tag = "";
+    $vincular = $sentencia->bind_result($id, $tag);
+    if(!$vincular)
+    {
+      echo "Fallo al vincular los resultados: ".$mysqli->errno;
+    }
+
+    $tags = array();
+
+    while($sentencia->fetch())
+    {
+      $tag = array(
+        'id_tag'=> $id,
+        'nombre_tag' => $tag
+      );
+      $tags[] = $tag;
+    }
+
+    $mysqli->close();
+    return $tags;
+  }
+
   function taggearNoticia($id_noticia, $id_tag)
   {
     $mysqli = connectBBDD();
@@ -515,5 +563,73 @@ function connectBBDD()
 
     $mysqli->close();
     return $ejecucion;
+  }
+
+  function deleteTagNoticia($id_noticia)
+  {
+    $mysqli = connectBBDD();
+    $sql = "DELETE FROM noticia_tag WHERE id_noticia = ?";
+    $sentencia = $mysqli->prepare($sql);
+    if(!$sentencia)
+    {
+      echo "Fallo en la preparacion de la sentencia: ".$mysqli->errno;
+    }
+    $asignar = $sentencia->bind_param("i", $id_noticia);
+    if(!$asignar)
+    {
+      echo "Fallo al asignar parámetros: ".$mysqli->errno;
+    }
+    $ejecucion = $sentencia->execute();
+    if(!$ejecucion)
+    {
+      echo "Fallo en la ejecución de la sentencia: ".$mysqli->errno;
+    }
+
+    $mysqli->close();
+    return $ejecucion;
+  }
+
+  function getIdFecha($fecha)
+  {
+    $mysqli = connectBBDD();
+    $sql = "select DISTINCT(noticia.id_noticia), noticia.titulo FROM noticia WHERE fecha_pub = ?;";
+    $sentencia = $mysqli->prepare($sql);
+    if(!$sentencia)
+    {
+      echo "Fallo en la preparacion de la sentencia: ".$mysqli->errno;
+    }
+    $asignar = $sentencia->bind_param("s", $fecha);
+    if(!$asignar)
+    {
+      echo "Fallo al asignar parámetros: ".$mysqli->errno;
+    }
+    $ejecucion = $sentencia->execute();
+    if(!$ejecucion)
+    {
+      echo "Fallo en la ejecución de la sentencia: ".$mysqli->errno;
+    }
+
+    $id_noticia = -1;
+    $titulo = "";
+    $vincular = $sentencia->bind_result($id_noticia, $titulo);
+    if(!$vincular)
+    {
+      echo "Fallo al vincular los resultados: ".$mysqli->errno;
+    }
+
+    $noticia = null;
+
+    $noticias = array();
+
+    while($sentencia->fetch())
+    {
+      $noticia = array(
+        'id' => $id_noticia,
+        'titulo' => $titulo
+      );
+      $noticias[] = $noticia;
+    }
+    $mysqli->close();
+    return $noticias;
   }
 ?>

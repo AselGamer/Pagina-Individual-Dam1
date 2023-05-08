@@ -20,6 +20,7 @@
                     <form action="modNoticia.php" method="post" enctype="multipart/form-data">
                         <?php
                         $noticia = obtenerNoticiaEn($_GET['id_noticia']);
+                        
                         echo '<label for="titulo" class="etiqueta">Titulo de la noticia:</label>';
                         echo '<input type="text" name="titulo" class="entradaTexto" value="'.$noticia['titulo'].'"/>';
                         echo '<label for="articulo" class="etiqueta">Contenido del noticia:</label>';
@@ -33,6 +34,27 @@
                         echo '<input type="hidden" name="id_usuario" value="'.$_SESSION['id_usuario'].'"/>';
                         echo '<input type="hidden" name="id_noticia" value="'.$noticia['id_noticia'].'"/>';
                         ?>
+                        <label for="tags" class="etiqueta">Tags:</label>
+                        <select name="tags[]" id ="tags" multiple>
+                            <?php
+                                include_once 'bbdd.php';
+                                $tagsNoticia = obtenerTagsEn($_GET['id_noticia']);
+                                $tagsNoticiaLength = sizeof($tagsNoticia);
+                                $tags = obtenerTags();
+                                $tagLength = sizeof($tags);
+                                $selected = "";
+                                    for ($i=0; $i < $tagLength; $i++) { 
+                                        $selected = "";
+                                        for ($j=0; $j < $tagsNoticiaLength; $j++) { 
+                                            if($tags[$i]['id_tag'] == $tags[$j]['id_tag'])
+                                            {
+                                                $selected = 'selected="selected"';
+                                            }
+                                        }
+                                            echo '<option value='.$tags[$i]['id_tag'].' '.$selected.'>'.$tags[$i]['nombre_tag'].'</option>';
+                                    }    
+                            ?>
+                        </select>
                         <div id="botonRegistro"><input type="submit" value="Editar Noticia" id="registrarse" class="entradaTexto"/></div>
                     </form>
                 </div>

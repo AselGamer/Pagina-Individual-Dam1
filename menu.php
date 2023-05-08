@@ -11,6 +11,7 @@
     </li>
     <li><a href="miembros.html">Miembros</a></li>
     <li><a href="discografia.html">Discografía</a></li>
+    <li><a href="buscarNoticia.php">Buscar  Noticia</a></li>
     <?php
     include_once 'bbdd.php';
     session_start();

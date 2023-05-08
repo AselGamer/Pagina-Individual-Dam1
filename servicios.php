@@ -40,4 +40,10 @@
         $juegoJson = json_encode($juego, JSON_UNESCAPED_UNICODE);
         echo $juegoJson;
     }
+    if($function == "getIdFecha") 
+    {
+        $juego = getIdFecha($_POST['fecha']);
+        $juegoJson = json_encode($juego, JSON_UNESCAPED_UNICODE);
+        echo $juegoJson;
+    }
 ?>

@@ -14,6 +14,13 @@ if(!empty($_FILES['imagen']['name']))
     $actualizacion = modificarNoticiaNoImg($_POST['titulo'], $_POST['articulo'], $_POST['fecha_pub'], $_POST['resumen'], $_POST['id_usuario'], $_POST['id_noticia']) ;
 }
 
+deleteTagNoticia($_POST['id_noticia']);
+if (isset($_POST['tags']) && isset($actualizacion)) {
+    foreach ($_POST['tags'] as $inTags)
+    {
+        taggearNoticia($_POST['id_noticia'], $inTags);
+    }    
+}
 
 if($actualizacion) 
 {

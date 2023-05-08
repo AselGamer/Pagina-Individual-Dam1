@@ -1,0 +1,20 @@
+#cuerpo 
+{
+    grid-column: 2 / 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+
+#selectFechas, #selectNoticias
+{
+    display: none;
+}
+
+#frameNoticia
+{
+    height: 700px;
+    width: 1000px;
+}

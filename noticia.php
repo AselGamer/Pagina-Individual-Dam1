@@ -5,13 +5,19 @@
         <title>Tally Unofficial Website</title>
     </head>
         <body>
-            <div id="encabezado">
-                <?php
+            <?php 
+            include_once 'bbdd.php';
+            if (!isset($_GET['iframe'])) {
+                echo '<div id="encabezado">';
+                
                     include_once 'menu.php';
-                    include_once 'bbdd.php';
-                ?>
-                <img src="images/logo.png" alt="Logo pagina" id="logoPagina"/>
-            </div>
+                    
+                
+                echo '<img src="images/logo.png" alt="Logo pagina" id="logoPagina"/>';
+            echo '</div>';
+            }
+            ?>
+            
             <div id="cuerpo">
                 <div id="noticia">
                 <?php
@@ -24,9 +30,14 @@
                 ?>
             </div>
             </div>
-            <div id="pie">
+            <?php 
+            if (!isset($_GET['iframe'])) {
+                echo '<div id="pie">
                 <a href="https://www.facebook.com/TallyHall" target="_blank"><img src="images/facebook-icon.png"  alt="Enlace facebook"></a>
                 <a href="https://twitter.com/tallyhall" target="_blank"><img src="images/twitter-icon.png"  alt="Enlace twitter"></a>
-            </div>
+            </div>';
+            }
+            ?>
+            
         </body>
 </html>
